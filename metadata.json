@@ -1,0 +1,8 @@
+{
+  "name": "SyncNotes",
+  "description": "An online notes storage application featuring elegant real-time note editing, cross-device instant synchronization, and live presence indicator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
