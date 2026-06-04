@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Google AI Studio App</title>
+    <script>
+      // Silence anticipated sandboxed development environment websocket connection errors and rejections
+      window.addEventListener('unhandledrejection', function(event) {
+        if (!event.reason) return;
+        var msg = event.reason.message || String(event.reason);
+        if (msg.indexOf('WebSocket') !== -1 || msg.indexOf('websocket') !== -1) {
+          event.preventDefault();
+          console.debug('Silenced development environment websocket rejection:', msg);
+        }
+      });
+      window.addEventListener('error', function(event) {
+        var msg = event.message || '';
+        if (msg.indexOf('WebSocket') !== -1 || msg.indexOf('websocket') !== -1) {
+          event.preventDefault();
+          console.debug('Silenced development environment error:', msg);
+        }
+      }, true);
+    </script>
   </head>
   <body>
     <div id="root"></div>
